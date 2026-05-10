@@ -40,7 +40,7 @@ WhatsApp Desktop App installed (for the messaging module)
 Installation
 Bash
 # Clone the repository
-git clone https://github.com/yourusername/zenith-ai.git
+git clone https://github.com/nnssprasad97/zenith-ai.git
 cd zenith-ai
 
 # Install Python dependencies
@@ -55,7 +55,7 @@ Create a contacts.json file in your modules/ directory to map names to phone num
 
 JSON
 {
-  "karthik": "+919876543210",
+  "": "+919876543210",
   "prasad": "+911234567890"
 }
 Usage
