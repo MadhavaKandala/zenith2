@@ -29,10 +29,6 @@ import { LogHelper } from '@/helpers/log-helper'
   // Start the HTTP server
   await HTTP_SERVER.init()
 
-  // TODO
-  // Register HTTP API endpoints
-  // await HTTP_API.register()
-
   // Start the socket server
   SOCKET_SERVER.init()
 

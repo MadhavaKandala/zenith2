@@ -32,7 +32,6 @@ import { LangHelper } from '@/helpers/lang-helper'
 import { LogHelper } from '@/helpers/log-helper'
 import { SkillDomainHelper } from '@/helpers/skill-domain-helper'
 import { StringHelper } from '@/helpers/string-helper'
-import Synchronizer from '@/core/synchronizer'
 
 export default class Brain {
   private static instance: Brain
@@ -406,28 +405,7 @@ export default class Brain {
                   }
                   speeches.push(skillResult.output.speech)
 
-                  // Synchronize the downloaded content if enabled
-                  if (
-                    skillResult.output.type === SkillOutputTypes.End &&
-                    skillResult.output.options['synchronization'] &&
-                    skillResult.output.options['synchronization'].enabled &&
-                    skillResult.output.options['synchronization'].enabled ===
-                      true
-                  ) {
-                    const sync = new Synchronizer(
-                      this,
-                      nluResult.classification,
-                      skillResult.output.options['synchronization']
-                    )
 
-                    // When the synchronization is finished
-                    sync.synchronize((speech: string) => {
-                      if (!this.isMuted) {
-                        this.talk(speech)
-                      }
-                      speeches.push(speech)
-                    })
-                  }
                 }
               } catch (e) {
                 LogHelper.title(`${this.skillFriendlyName} skill`)
